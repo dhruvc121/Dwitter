@@ -1,0 +1,107 @@
+*{
+	margin:0px;
+	padding:0px;
+	box-sizing:border-box;
+}
+.home-row{
+	min-height:100%;
+}
+.login-container{
+	padding:3rem;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+#must{
+	color:red
+}
+.profile-pic{
+	border-radius:50%;
+}
+.menu-div{
+	position:sticky;
+	top:0;
+}
+.menu-list:hover{
+	cursor:pointer
+}
+.new-dweet{
+	height:10rem;
+	padding:1rem;
+	background:white;
+	border-radius:.5rem;
+}
+.dweet-input{
+	background:transparent;
+	padding:1rem;
+	line-height:1rem;
+	border:none;
+	margin-top:1rem;
+}
+.dweet-input:focus{
+	outline:none;
+}
+.dweet-button{
+	width:25%!important;
+	margin-left:auto;
+	margin-top:1rem!important;
+}
+.dweet-row{
+	padding:1rem;
+}
+.reply-div{
+	margin-top:1rem;
+}
+.reply-btn{
+	width:100%;
+	margin-top:1rem;
+}
+.news-title{
+	margin:1rem;
+}
+.news-description{
+	margin:1rem;
+}
+.profile-image-div{
+	display:flex;
+	flex-direction:column;
+}
+.profile-background{
+	height:200px;
+}
+.profile-image{
+	height:100px;
+	width:100px;
+	position:relative;
+	top:-50px;
+	left:10px;
+	border-radius:50%;
+	border:5px solid white;
+}
+.profile-setprofile-btn{
+	position:relative;
+	top:-70px;
+	float:right;
+}
+.profile-name-div{
+	position:relative;
+	top:-45px;
+}
+.profile-menu-div{
+	display:flex;
+	justify-content:space-between;
+}
+.profile-menu-option{
+	display:block;
+	cursor:pointer;
+}
+.profile-menu-option:active{
+	color:cyan;
+}
+.username{
+	cursor:pointer;
+}
+.setprofile-textarea{
+	width:100%;
+	padding:1rem;
+}
