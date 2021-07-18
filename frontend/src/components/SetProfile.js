@@ -15,6 +15,8 @@ const SetProfile=()=>{
 			header:"",
 			bio:"",
 		})
+	
+		
 	const profileButtonHandle=async (e)=>{
 		const otherEmail=otherUser.email
 		const userEmail=user.email
@@ -72,9 +74,20 @@ const SetProfile=()=>{
 			handleClose()
 		}
 	
-	
+	const check=()=>{
+			const isPresent=user.following.find(userId=>userId === otherUser.email)
+					if(isPresent!= undefined){
+					return true
+					}else{
+						return false
+						}
+		}
 		return(<>
-		 <Button variant="outline-primary" className="profile-setprofile-btn" onClick={profileButtonHandle}>{otherUser.name?"Follow":"Set Profile"}</Button>
+		 <Button variant="outline-primary" className="profile-setprofile-btn" onClick={profileButtonHandle}>
+			{otherUser.name?(check()?"Unfollow":"Follow"):"Set Profile"
+				
+				}
+				</Button>
 
 		  <Modal show={show} onHide={handleClose}>
 			<Modal.Body>

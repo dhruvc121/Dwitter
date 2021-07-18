@@ -6,7 +6,37 @@ const jwt=require('jsonwebtoken')
 //require('../db/conn.js')
 const DwitterUser=require('../models/schema.js')
 const AllDweets=require('../models/AllDweetsSchema.js')
+const authenticate=require('../middleware/authenticate.js')
 
+//logout
+router.get('/logout',async(req,res)=>{
+		console.log("here")
+		res.clearCookie("DwitterToken",{path:'/'})
+		res.status(200).send("logout")
+	})
+
+//auto login
+router.get('/autologin',async(req,res)=>{
+		try{
+		const token=req.cookies.DwitterToken;
+		if(token){
+		const verifyToken=jwt.verify(token,process.env.SECRETKEY)
+		const user=await DwitterUser.findOne({_id:verifyToken._id})
+		console.log(verifyToken._id)
+		res.send(user)
+		}
+	}catch(err){
+		console.log(err)
+		}
+	})
+
+
+//search for other users
+router.post("/search",async(req,res)=>{
+		const {search}=req.body
+		const details=await DwitterUser.findOne({email:search})
+		res.send(details)		
+	})
 
 //follow handle
 router.post("/followhandle",async(req,res)=>{

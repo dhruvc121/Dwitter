@@ -1,6 +1,7 @@
 import React,{useState,useEffect,useContext} from 'react';
 import {Button,Container,FormControl,Row,Col} from 'react-bootstrap'
 import ShowDweets from './ShowDweets'
+import Search from './Search.js'
 import socketIOClient from "socket.io-client";
 import {UserContext} from '../context/userContext.js'
 
@@ -72,6 +73,7 @@ const NewDweet =()=>{
 		}
 		//console.log(dweetArr)
 		return(<>
+		<Search/>
 		<Container className="">
 		<div className="new-dweet shadow-sm">
 		<Row>
@@ -110,6 +112,7 @@ const NewDweet =()=>{
 				likes={dweet.likes}
 				reply={dweet.reply}
 				likedBy={dweetLikedBy}
+				replyCount={dweet.reply.length}
 				/>
 			)
 			})

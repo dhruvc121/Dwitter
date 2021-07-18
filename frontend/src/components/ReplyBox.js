@@ -38,7 +38,7 @@ function ReplyBox(props) {
   return (
     <>
       <Button variant="" className="text-primary" onClick={handleShow}>
-       <FontAwesomeIcon icon={faComment} />
+       <span>{props.replyCount} </span><FontAwesomeIcon icon={faComment} />
       </Button>
 
       <Modal show={show} onHide={handleClose}>

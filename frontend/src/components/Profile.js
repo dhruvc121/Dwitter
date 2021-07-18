@@ -18,12 +18,12 @@ const Profile=()=>{
 				}else{
 					setDisplayProfile(user)
 					}		
-					console.log(user)
+					
 		},[])
 	
 	const handle=(e)=>{
 		setMenuOption(e.target.innerText)
-		console.log(menuOption)
+		//console.log(menuOption)
 	}
 	
 	
@@ -39,8 +39,10 @@ const Profile=()=>{
 			<div className="profile-name-div">
 			<h5>{displayProfile.name}</h5>
 			<h6 className="text-muted">{displayProfile.email}</h6>
-			{user.profile && <h6 className="text-muted">{user.profile.bio}</h6>}
-			<h6 >0<span className="text-muted">Following</span> 0<span className="text-muted">Followers</span></h6>
+			{user.profile && <h6 className="text-muted">{user.profile.bio}</h6>}				
+			<h6>{(displayProfile.following?displayProfile.following.length:0)}<span className="text-muted"> Following  </span>
+				{(displayProfile.followers?displayProfile.followers.length:0)} <span className="text-muted">Followers </span>
+			</h6>
 			</div>
 			<div className="profile-menu-div">
 			<h6 className="profile-menu-option" name="Dweets" onClick={handle}>Dweets and Replies</h6>

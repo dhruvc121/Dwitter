@@ -1,4 +1,4 @@
-import React,{useState,useContext} from 'react';
+import React,{useState,useContext,useEffect} from 'react';
 import {Container,Button,Row,Col} from 'react-bootstrap'
 import {useHistory,NavLink} from 'react-router-dom'
 import {UserContext} from '../context/userContext.js'
@@ -9,6 +9,9 @@ const Login=()=>{
 	const [email,setEmail]=useState("")
 	const [password,setPassword]=useState("")
 	const [user,setUser]=useContext(UserContext)
+	useEffect(()=>{
+			autoLogin()
+		},[])		
 		const formSubmit=async(e)=>{
 				e.preventDefault()
 				const res=await fetch("http://localhost:3001/login",{
@@ -32,7 +35,21 @@ const Login=()=>{
 						console.log("here")
 						}
 			}
-	
+		const autoLogin= async()=>{
+				const res=await fetch("http://localhost:3001/autologin",{
+					method:"GET",
+					headers:{
+						Accept:"application/json",
+						"Content-Type":"application/json"
+						},
+					credentials:"include"
+					})
+				const data=await res.json()
+				setUser(data)
+				history.push("/home")
+			}
+			
+		
 		return(<>
 		<Container className="login-container bg-light min-vh-100">
 			<Row className="login-row">

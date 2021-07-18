@@ -66,7 +66,7 @@ const ShowDweets =(props)=>{
 						const data=await res.json()
 						if(data){
 							setOtherUser(data)
-							console.log(otherUser)
+							console.log(data)
 							setPage("Profile")
 							
 							}
@@ -91,9 +91,7 @@ const ShowDweets =(props)=>{
 								<Row>
 								<div className="d-flex justify-content-between">
 									<Button variant="" className="text-primary" onClick={handleLike}><span>{props.likes} </span><FontAwesomeIcon icon={faHeart}/></Button>
-									<ReplyBox 
-									id={props.id}
-									/>
+									<ReplyBox id={props.id} replyCount={props.replyCount}/>
 									<Button variant="" className="text-primary" onClick={handleSave}><FontAwesomeIcon icon={faBookmark}/></Button>
 								</div>
 								</Row>

@@ -24,7 +24,7 @@ const ProfileContent=(props)=>{
 						}
 				}
 			const showSavedDweets=()=>{
-				console.log(user.saved.length)
+			//	console.log(user.saved.length)
 					setSavedDweets(user.saved)
 				}
 		return(<>
